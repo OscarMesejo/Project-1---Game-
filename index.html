@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/style.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="style.css">
     <title>Saving the Planet</title>
 </head>
 <body>
@@ -34,8 +34,8 @@
               <p>Score: <span id="score">0</span></p>
             </div> -->
             <!-- #game-screen is initially hidden using CSS style display: none -->
-            <!-- <div id="game-screen"></div>
-          </div> -->
+            <div id="game-screen"></div>
+          </div>
 
           <!-- #game-end is initially hidden using CSS style display: none -->
       <!-- <div id="game-end">
@@ -46,12 +46,23 @@
         <button id="restart-button">Restart</button>
       </div> --> 
 
-      <div></div>
+      
+      <div id="yellowDiv">
+        <div id="whiteDiv">
+            <div id="player"></div>
+            <div id="blueDiv"></div>
+            <div class= "earth-container">
+                <div id="aquaDiv"></div>
+                <div id="greenDiv"></div>
+            </div>
+        </div>
+      </div>
+        
     </main>
 
-    <script></script>
-    <script></script>
-    <script></script>
+    <script type="text/javascript" src="game.js"></script>
+    <script type="text/javascript" src="player.js"></script>
+    <script type="text/javascript" src="script.js"></script>
     
 </body>
 </html>

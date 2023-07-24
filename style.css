@@ -1,0 +1,56 @@
+#yellowDiv{
+    background-color: rgb(155, 136, 136);
+    height: 100vh;
+    width: 100vw; 
+    display: flex;
+    justify-content: center;
+      
+}
+#whiteDiv{
+    background-color: white;
+    border: 2px solid orangered;
+    width: 1200px;
+    height: 550px;  
+    margin: 50px;
+}
+#blueDiv{
+    /* background-color: blue; */
+    background-image: url("/images/sky.avif");
+    width: 100%;
+    height: 35%;
+}
+#aquaDiv{
+    background-image: url("/images/waves.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 70%;
+    height: 100%;
+    
+}
+#greenDiv{
+    /* background-image: url("/images/grass.PNG"); */
+    background-color: green;
+    width: 30%;
+    height: 100%;
+  
+}
+ /* this class contains #aquaDiv and #greenDiv */
+.earth-container{
+    display: flex;
+    height: 65%;
+}
+body{
+    margin: 0%;
+    padding: 0%;
+}
+
+#player{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    /* background-image: url("/images/Greta\ Thunberg.png"); */
+    background-color: red;
+    position: absolute;
+    top: 0;
+    left: 0;
+}

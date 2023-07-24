@@ -1,7 +1,11 @@
 class Player {
-    constructor(){
-      this.width = width;
-      this.height = height;
+    constructor(x, y){
+        this.x = 0;
+        this.y = 0;  
+}
 
-    }
+}
+
+move(){
+    
 }
