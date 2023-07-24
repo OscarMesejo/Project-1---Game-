@@ -1,4 +1,4 @@
-#yellowDiv{
+#mainBackground{
     background-color: rgb(155, 136, 136);
     height: 100vh;
     width: 100vw; 
@@ -6,20 +6,20 @@
     justify-content: center;
       
 }
-#whiteDiv{
+#board{
     background-color: white;
     border: 2px solid orangered;
     width: 1200px;
     height: 550px;  
     margin: 50px;
 }
-#blueDiv{
+#skybackground{
     /* background-color: blue; */
     background-image: url("/images/sky.avif");
     width: 100%;
     height: 35%;
 }
-#aquaDiv{
+#seaBackground{
     background-image: url("/images/waves.gif");
     background-repeat: no-repeat;
     background-size: cover;
@@ -27,7 +27,7 @@
     height: 100%;
     
 }
-#greenDiv{
+#landBackground{
     /* background-image: url("/images/grass.PNG"); */
     background-color: green;
     width: 30%;
