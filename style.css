@@ -54,8 +54,8 @@ body{
     /* background-image: url("/images/Greta\ Thunberg.png"); */
     background-color: red;
     position: absolute;
-    top: 0;
-    left: 0;
+    /* top: 100px;
+    left: 100px; */
 }
 
  .obstacle{
