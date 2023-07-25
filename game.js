@@ -1,6 +1,6 @@
 class Game {
     constructor(){
-        this.gameScreen = document.getElementById("game-creen");
+        this.gameScreen = document.getElementById("game-screen");
         // this.startScreen = document.getElementById("start")
         this.width = '';
         this.height = '';

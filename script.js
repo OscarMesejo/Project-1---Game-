@@ -28,6 +28,8 @@ function playerMove(keyPressed){
     playerElement.style.top = `${player.y}px`
 }
 
+const obstacle = new Obstacle;
+
 
 
 
