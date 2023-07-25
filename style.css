@@ -31,7 +31,7 @@
     
 }
 #landBackground{
-    /* background-image: url("/images/grass2"); */
+    /* background-image: url("images/grass2pixel.png"); */
     background-color: green;
     width: 30%;
     height: 100%;
@@ -53,6 +53,17 @@ body{
     border-radius: 50%;
     /* background-image: url("/images/Greta\ Thunberg.png"); */
     background-color: red;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+ .obstacle{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    /* background-image: ; */
+    background-color: yellow;
     position: absolute;
     top: 0;
     left: 0;

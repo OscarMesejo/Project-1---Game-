@@ -4,6 +4,8 @@ document.addEventListener("keydown",(event) =>{
     console.log(event);
     playerMove(event.key)
 })
+//This creates a new game
+const newGame = new Game;
 
 const playerElement = document.getElementById("player")
 const player = new Player;
@@ -32,21 +34,42 @@ player.checkBoundaries()
 }
 
 const obstacleElement = document.getElementById("obstacle")
-const obstacle = new Obstacle;
-console.log(obstacle);
+// const obstacle = new Obstacle;
+// console.log(obstacle);
 
 function createNewObstacle(){
-    const obstacle = document.getElementById("obstacle");
-    document.body.appendChild(obstacle);
+    console.log("create new obstacle");
+    const seaBackground = document.getElementById("seaBackground")
+    const obstacle = document.createElement("div");
+    seaBackground.appendChild(obstacle);
     obstacle.className = "obstacle";
     obstacle.style.top = 0;
-    obstacle.style.lef = Math.random() * window.innerWidth + "px"
+    obstacle.style.left = Math.random() * seaBackground.offsetWidth + "px"
+    newGame.obstacles.push(obstacle);
+    
 
-}
+    
+    // obstacleElement.style.left = `${obstacle}px`
+    // obstacleElement.style.top = `${obstacle}px`
 
-function moveObstacle(){
     
 }
+
+
+setInterval(() => {
+    createNewObstacle()
+    moveObstacles()
+}, 2000);
+
+function moveObstacles(){
+    newGame.obstacles.forEach((obstacle)=>{
+        console.log(obstacle.offsetTop);
+        const obstaclePosition = obstacle.offsetTop+50;
+        obstacle.style.top = `${obstaclePosition}px`
+    })
+
+}
+
 
 
 

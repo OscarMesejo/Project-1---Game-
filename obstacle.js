@@ -6,5 +6,5 @@ class Obstacle{
         // this.x = 0; // option to fish movement?
 
     }
-    
+   
 }
