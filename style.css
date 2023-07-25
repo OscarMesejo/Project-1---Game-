@@ -27,6 +27,7 @@
     background-size: cover;
     width: 70%;
     height: 100%;
+    position: relative;
     
 }
 #landBackground{

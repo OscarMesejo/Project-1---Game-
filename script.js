@@ -24,6 +24,8 @@ function playerMove(keyPressed){
             player.x -= 10;
             break;
 }
+player.checkBoundaries()
+
     playerElement.style.left = `${player.x}px`
     playerElement.style.top = `${player.y}px`
 }
