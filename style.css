@@ -31,8 +31,8 @@
     
 }
 #landBackground{
-    background-image: url("/images/newgrass.avif");
-    /* background-color: green; */
+    /* background-image: url("/images/grass2"); */
+    background-color: green;
     width: 30%;
     height: 100%;
   

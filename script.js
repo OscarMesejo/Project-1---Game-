@@ -9,6 +9,7 @@ const playerElement = document.getElementById("player")
 const player = new Player;
 console.log(player);
 
+// This function is going to get the key pressed as an argument and move the player accordingly
 function playerMove(keyPressed){
     switch (keyPressed) {
         case "ArrowUp":
@@ -30,7 +31,22 @@ player.checkBoundaries()
     playerElement.style.top = `${player.y}px`
 }
 
+const obstacleElement = document.getElementById("obstacle")
 const obstacle = new Obstacle;
+console.log(obstacle);
+
+function createNewObstacle(){
+    const obstacle = document.getElementById("obstacle");
+    document.body.appendChild(obstacle);
+    obstacle.className = "obstacle";
+    obstacle.style.top = 0;
+    obstacle.style.lef = Math.random() * window.innerWidth + "px"
+
+}
+
+function moveObstacle(){
+    
+}
 
 
 
