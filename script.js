@@ -61,6 +61,7 @@ setInterval(() => {
     createNewObstacle()
     moveObstacles()
     removeObstacles()
+    collissionDetectionForSquares()
 }, 1000);
 
 function moveObstacles(){
@@ -84,6 +85,24 @@ function removeObstacles(){
         }
     })
 
+}
+
+function collissionDetectionForSquares(){
+    const player = document.getElementById("player");
+    const obstacle = document.getElementById ("obstacle");
+    const playerPosition = player.getBoundingClientRect();
+    const obstaclePosition = obstacle.getBoundingClientRect();
+
+    if(
+        playerPosition.x < obstaclePosition.x + obstaclePosition.width &&
+        playerPosition.x + playerPosition.width > obstaclePosition.x &&
+        playerPosition.y < obstaclePosition.y + obstaclePosition.height &&
+        playerPosition.y + playerPosition.height > obstaclePosition.y
+    ){
+        console.log('COLLISION DETECTED');
+    }
+
+    //llamar funcion en function gameLoop()?
 }
 
 
