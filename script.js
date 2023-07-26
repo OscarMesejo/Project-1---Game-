@@ -88,19 +88,25 @@ function removeObstacles(){
 }
 
 function collissionDetectionForSquares(){
-    const player = document.getElementById("player");
-    const obstacle = document.getElementById ("obstacle");
-    const playerPosition = player.getBoundingClientRect();
-    const obstaclePosition = obstacle.getBoundingClientRect();
+    newGame.obstacles.forEach((obstacle)=>{ //This is to call the array
 
-    if(
-        playerPosition.x < obstaclePosition.x + obstaclePosition.width &&
-        playerPosition.x + playerPosition.width > obstaclePosition.x &&
-        playerPosition.y < obstaclePosition.y + obstaclePosition.height &&
-        playerPosition.y + playerPosition.height > obstaclePosition.y
-    ){
-        console.log('COLLISION DETECTED');
-    }
+        const playerPosition = playerElement.getBoundingClientRect();
+        const obstaclePosition = obstacle.getBoundingClientRect();
+    
+        if(
+            playerPosition.x < obstaclePosition.x + obstaclePosition.width &&
+            playerPosition.x + playerPosition.width > obstaclePosition.x &&
+            playerPosition.y < obstaclePosition.y + obstaclePosition.height &&
+            playerPosition.y + playerPosition.height > obstaclePosition.y
+        ){
+            console.log('COLLISION DETECTED');
+
+            //This will be executed when there is a collussion
+
+
+            obstacle.remove() //When collussion obstacle desapeare
+        }
+    })
 
     //llamar funcion en function gameLoop()?
 }
