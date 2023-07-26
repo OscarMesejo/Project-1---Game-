@@ -1,5 +1,5 @@
 // This is to move the player around the screen
-document.addEventListener("keydown",(event) =>{
+document.addEventListener("keydown", (event) => {
     event.preventDefault();
     console.log(event);
     playerMove(event.key)
@@ -8,11 +8,11 @@ document.addEventListener("keydown",(event) =>{
 const newGame = new Game;
 
 const playerElement = document.getElementById("player")
-const player = new Player(325,350);
+const player = new Player(325, 350);
 console.log(player);
 
 // This function is going to get the key pressed as an argument and move the player accordingly
-function playerMove(keyPressed){
+function playerMove(keyPressed) {
     switch (keyPressed) {
         case "ArrowUp":
             player.y -= 10;
@@ -26,8 +26,8 @@ function playerMove(keyPressed){
         case "ArrowLeft":
             player.x -= 10;
             break;
-}
-player.checkBoundaries()
+    }
+    player.checkBoundaries()
 
     playerElement.style.left = `${player.x}px`
     playerElement.style.top = `${player.y}px`
@@ -38,7 +38,7 @@ const obstacleElement = document.getElementById("obstacle")
 // const obstacle = new Obstacle;
 // console.log(obstacle);
 
-function createNewObstacle(){
+function createNewObstacle() {
     console.log("create new obstacle");
     const seaBackground = document.getElementById("seaBackground");
     const obstacle = document.createElement("div");
@@ -54,17 +54,17 @@ function createNewObstacle(){
 
     obstacle.style.backgroundImage = imgArray[randomNumber]
     newGame.obstacles.push(obstacle);
-    
-// 
-    
+
+    // 
+
     // obstacleElement.style.left = `${obstacle}px`
     // obstacleElement.style.top = `${obstacle}px`
 
-    
+
 }
 
 // crear funcion createNewReward para rewards
-function createNewReward(){
+function createNewReward() {
     console.log("create new reward");
     const seaBackground = document.getElementById("seaBackground");
     const reward = document.createElement("div");
@@ -88,84 +88,91 @@ setInterval(() => {
     removeObstacles()
     removeRewards()
     collissionDetectionForSquares()
+    document.getElementById("scoreCounter").innerHTML = newGame.score;
+    updateTimer()
 }, 1000);
 
-function moveObstacles(){
-    newGame.obstacles.forEach((obstacle)=>{
+function moveObstacles() {
+    newGame.obstacles.forEach((obstacle) => {
         // console.log(obstacle.offsetTop);
-        const obstaclePosition = obstacle.offsetTop+50;
+        const obstaclePosition = obstacle.offsetTop + 50;
         obstacle.style.top = `${obstaclePosition}px`
-        
+
     })
 }
-function moveRewards(){
-    newGame.rewards.forEach((reward)=>{
-        const rewardPosition = reward.offsetTop+50;
+function moveRewards() {
+    newGame.rewards.forEach((reward) => {
+        const rewardPosition = reward.offsetTop + 50;
         reward.style.top = `${rewardPosition}px`
     })
 }
 
-function removeObstacles(){
-    newGame.obstacles.forEach((obstacle)=>{
+function removeObstacles() {
+    newGame.obstacles.forEach((obstacle) => {
         const obstaclePosition = obstacle.offsetTop;
-        
+
         const seaBackground = document.getElementById("seaBackground");
-        if(obstaclePosition > seaBackground.offsetHeight - obstacle.offsetHeight){
+        if (obstaclePosition > seaBackground.offsetHeight - obstacle.offsetHeight) {
             obstacle.remove() // This makes desapeare the obstacles
             // newGame.obstacles.pop()
         }
     })
 }
-function removeRewards(){
-    newGame.rewards.forEach((reward)=>{
+function removeRewards() {
+    newGame.rewards.forEach((reward) => {
         const rewardPosition = reward.offsetTop;
 
         const seaBackground = document.getElementById("seaBackground");
-        if(rewardPosition > seaBackground.offsetHeight - reward.offsetHeight){
+        if (rewardPosition > seaBackground.offsetHeight - reward.offsetHeight) {
             reward.remove()
         }
     })
 }
 
-function collissionDetectionForSquares(){
-    newGame.obstacles.forEach((obstacle)=>{ //This is to call the array
+function updateTimer(){
+    newGame.timer -=1;
+    document.getElementById("timerCounter").innerHTML = newGame.timer;
+}
+
+function collissionDetectionForSquares() {
+    newGame.obstacles.forEach((obstacle) => { //This is to call the array
 
         const playerPosition = playerElement.getBoundingClientRect();
         const obstaclePosition = obstacle.getBoundingClientRect();
-    
-        if(
+
+        if (
             playerPosition.x < obstaclePosition.x + obstaclePosition.width &&
             playerPosition.x + playerPosition.width > obstaclePosition.x &&
             playerPosition.y < obstaclePosition.y + obstaclePosition.height &&
             playerPosition.y + playerPosition.height > obstaclePosition.y
-        ){
+        ) {
             console.log('COLLISION DETECTED');
+
+            //This will be executed when there is a collussion
+
+            if (newGame.score > 0) {
+                newGame.score -= 15;
+            }
 
             obstacle.remove() //When collussion obstacle desapeare
         }
     })
 
-    newGame.rewards.forEach((reward)=>{ //This is to call the array
+    newGame.rewards.forEach((reward) => { //This is to call the array
 
         const playerPosition = playerElement.getBoundingClientRect();
         const rewardPosition = reward.getBoundingClientRect();
-    
-        if(
+
+        if (
             playerPosition.x < rewardPosition.x + rewardPosition.width &&
             playerPosition.x + playerPosition.width > rewardPosition.x &&
             playerPosition.y < rewardPosition.y + rewardPosition.height &&
             playerPosition.y + playerPosition.height > rewardPosition.y
-        ){
+        ) {
             console.log('COLLISION DETECTED');
 
-
             //This will be executed when there is a collussion
-
-            // newGame.score.obstacle === -20;
-            // newGame.score.reward === 50;
-
-        
-
+            newGame.score += 30;
 
             reward.remove() //When collussion obstacle desapeare
         }
