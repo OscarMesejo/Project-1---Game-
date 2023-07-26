@@ -48,10 +48,14 @@ function createNewObstacle(){
     // Random para añadir distintas imágenes
     obstacle.style.top = 0;
     obstacle.style.left = Math.random() * seaBackground.offsetWidth + "px"
-    // obstacle.style.background = imagearray[]
+
+    const imgArray = ['url("/images/pez.png")', 'url("/images/plastic-bag.png")', 'url("/images/plastic-bag.png")']
+    const randomNumber = Math.floor(Math.random() * ((imgArray.length - 1)))
+
+    obstacle.style.backgroundImage = imgArray[randomNumber]
     newGame.obstacles.push(obstacle);
     
-
+// 
     
     // obstacleElement.style.left = `${obstacle}px`
     // obstacleElement.style.top = `${obstacle}px`
@@ -62,12 +66,16 @@ function createNewObstacle(){
 // crear funcion createNewReward para rewards
 function createNewReward(){
     console.log("create new reward");
-    const seaBackground = document.getElementById("seaBackground"):
+    const seaBackground = document.getElementById("seaBackground");
     const reward = document.createElement("div");
     seaBackground.appendChild(reward);
     reward.className = "reward";
     reward.style.top = 0;
     reward.style.left = Math.random() * seaBackground.offsetWidth + "px"
+
+    const imgArray = ['url("/images/plastic-bag.png")', 'url("/images/plastic-bag.png")']
+    const randomNumber = Math.floor(Math.random() * ((imgArray.length - 1)))
+    reward.style.backgroundImage = imgArray[randomNumber]
     newGame.reward.push(reward);
 }
 
@@ -77,6 +85,7 @@ setInterval(() => {
     moveObstacles()
     removeObstacles()
     collissionDetectionForSquares()
+    createNewReward()
 }, 1000);
 
 function moveObstacles(){
@@ -117,6 +126,11 @@ function collissionDetectionForSquares(){
             console.log('COLLISION DETECTED');
 
             //This will be executed when there is a collussion
+
+            newGame.score.obstacle === -20;
+            newGame.score.reward === 50;
+
+        
 
 
             obstacle.remove() //When collussion obstacle desapeare
