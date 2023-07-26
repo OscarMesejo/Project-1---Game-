@@ -40,12 +40,15 @@ const obstacleElement = document.getElementById("obstacle")
 
 function createNewObstacle(){
     console.log("create new obstacle");
-    const seaBackground = document.getElementById("seaBackground")
+    const seaBackground = document.getElementById("seaBackground");
     const obstacle = document.createElement("div");
     seaBackground.appendChild(obstacle);
     obstacle.className = "obstacle";
+
+    // Random para añadir distintas imágenes
     obstacle.style.top = 0;
     obstacle.style.left = Math.random() * seaBackground.offsetWidth + "px"
+    // obstacle.style.background = imagearray[]
     newGame.obstacles.push(obstacle);
     
 
@@ -54,6 +57,18 @@ function createNewObstacle(){
     // obstacleElement.style.top = `${obstacle}px`
 
     
+}
+
+// crear funcion createNewReward para rewards
+function createNewReward(){
+    console.log("create new reward");
+    const seaBackground = document.getElementById("seaBackground"):
+    const reward = document.createElement("div");
+    seaBackground.appendChild(reward);
+    reward.className = "reward";
+    reward.style.top = 0;
+    reward.style.left = Math.random() * seaBackground.offsetWidth + "px"
+    newGame.reward.push(reward);
 }
 
 
@@ -107,8 +122,6 @@ function collissionDetectionForSquares(){
             obstacle.remove() //When collussion obstacle desapeare
         }
     })
-
-    //llamar funcion en function gameLoop()?
 }
 
 
