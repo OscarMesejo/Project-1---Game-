@@ -58,11 +58,13 @@ body{
 }
 
 #player{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    /* background-image: url("/images/Greta\ Thunberg.png"); */
-    background-color: red;
+    width: 80px;
+    height: 80px;
+    border-radius: 0%;
+    background-image: url("images/GretaThunberg.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* background-color: red; */
     position: absolute;
     /* top: 100px;
     left: 100px; */
@@ -74,6 +76,16 @@ body{
     border-radius: 50%;
     /* background-image: ; */
     /* background-color: yellow; */
+    position: absolute;
+    background-size: cover;
+    top: 0;
+    left: 0;
+}
+
+.reward{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
     position: absolute;
     background-size: cover;
     top: 0;

@@ -49,7 +49,7 @@ function createNewObstacle(){
     obstacle.style.top = 0;
     obstacle.style.left = Math.random() * seaBackground.offsetWidth + "px"
 
-    const imgArray = ['url("/images/pez.png")', 'url("/images/plastic-bag.png")', 'url("/images/plastic-bag.png")']
+    const imgArray = ['url("/images/pez.png")']
     const randomNumber = Math.floor(Math.random() * ((imgArray.length - 1)))
 
     obstacle.style.backgroundImage = imgArray[randomNumber]
@@ -73,19 +73,21 @@ function createNewReward(){
     reward.style.top = 0;
     reward.style.left = Math.random() * seaBackground.offsetWidth + "px"
 
-    const imgArray = ['url("/images/plastic-bag.png")', 'url("/images/plastic-bag.png")']
+    const imgArray = ['url("/images/plastic-bag.png")']
     const randomNumber = Math.floor(Math.random() * ((imgArray.length - 1)))
     reward.style.backgroundImage = imgArray[randomNumber]
-    newGame.reward.push(reward);
+    newGame.rewards.push(reward);
 }
 
 
 setInterval(() => {
     createNewObstacle()
-    moveObstacles()
-    removeObstacles()
-    collissionDetectionForSquares()
     createNewReward()
+    moveObstacles()
+    moveRewards()
+    removeObstacles()
+    removeRewards()
+    collissionDetectionForSquares()
 }, 1000);
 
 function moveObstacles(){
@@ -95,7 +97,12 @@ function moveObstacles(){
         obstacle.style.top = `${obstaclePosition}px`
         
     })
-
+}
+function moveRewards(){
+    newGame.rewards.forEach((reward)=>{
+        const rewardPosition = reward.offsetTop+50;
+        reward.style.top = `${rewardPosition}px`
+    })
 }
 
 function removeObstacles(){
@@ -108,7 +115,16 @@ function removeObstacles(){
             // newGame.obstacles.pop()
         }
     })
+}
+function removeRewards(){
+    newGame.rewards.forEach((reward)=>{
+        const rewardPosition = reward.offsetTop;
 
+        const seaBackground = document.getElementById("seaBackground");
+        if(rewardPosition > seaBackground.offsetHeight - reward.offsetHeight){
+            reward.remove()
+        }
+    })
 }
 
 function collissionDetectionForSquares(){
@@ -125,15 +141,33 @@ function collissionDetectionForSquares(){
         ){
             console.log('COLLISION DETECTED');
 
+            obstacle.remove() //When collussion obstacle desapeare
+        }
+    })
+
+    newGame.rewards.forEach((reward)=>{ //This is to call the array
+
+        const playerPosition = playerElement.getBoundingClientRect();
+        const rewardPosition = reward.getBoundingClientRect();
+    
+        if(
+            playerPosition.x < rewardPosition.x + rewardPosition.width &&
+            playerPosition.x + playerPosition.width > rewardPosition.x &&
+            playerPosition.y < rewardPosition.y + rewardPosition.height &&
+            playerPosition.y + playerPosition.height > rewardPosition.y
+        ){
+            console.log('COLLISION DETECTED');
+
+
             //This will be executed when there is a collussion
 
-            newGame.score.obstacle === -20;
-            newGame.score.reward === 50;
+            // newGame.score.obstacle === -20;
+            // newGame.score.reward === 50;
 
         
 
 
-            obstacle.remove() //When collussion obstacle desapeare
+            reward.remove() //When collussion obstacle desapeare
         }
     })
 }

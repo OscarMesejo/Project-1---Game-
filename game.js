@@ -6,6 +6,7 @@ class Game {
         this.width = '';
         this.height = '';
         this.obstacles = [];
+        this.rewards = [];
         this.score = 0;
         this.timer = '';
         this.gameOver = false;
