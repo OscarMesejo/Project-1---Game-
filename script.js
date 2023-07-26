@@ -132,6 +132,15 @@ function removeRewards() {
 function updateTimer(){
     newGame.timer -=1;
     document.getElementById("timerCounter").innerHTML = newGame.timer;
+    if(newGame.timer === 3){
+        console.log("START GAME");
+        document.getElementById("game-intro").style.display = "block";
+    }
+    else if(newGame.timer === 0){
+        console.log("GAME OVER");
+       document.getElementById("game-end").style.display = "block";
+    //    window.clearInterval(timer)
+    }
 }
 
 function collissionDetectionForSquares() {
@@ -152,7 +161,7 @@ function collissionDetectionForSquares() {
 
             if (newGame.score > 0) {
                 newGame.score -= 15;
-            }
+            } //This reduces the score
 
             obstacle.remove() //When collussion obstacle desapeare
         }

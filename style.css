@@ -57,6 +57,28 @@ body{
     padding: 0%;
 }
 
+#game-intro{
+    display: none;
+    position: absolute;
+    top: 200px;
+    z-index: 10;
+    background-color: white;
+    border: 5px solir orangered;
+    width: 50%;
+    height: 50%;
+}
+
+#game-end{
+    display: none;
+    position: absolute;
+    top: 200px;
+    z-index: 10;
+    background-color: white;
+    border: 5px solid purple;
+    width: 50%;
+    height: 50%;
+}
+
 #player{
     width: 80px;
     height: 80px;
