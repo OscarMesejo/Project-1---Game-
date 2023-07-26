@@ -49,7 +49,7 @@ function createNewObstacle() {
     obstacle.style.top = 0;
     obstacle.style.left = Math.random() * seaBackground.offsetWidth + "px"
 
-    const imgArray = ['url("/images/pez.png")']
+    const imgArray = ['url("/images/yellowfish.png")']
     const randomNumber = Math.floor(Math.random() * ((imgArray.length - 1)))
 
     obstacle.style.backgroundImage = imgArray[randomNumber]
