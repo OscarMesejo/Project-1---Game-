@@ -25,7 +25,7 @@ restartButtonElement.addEventListener('click',()=>{
 const newGame = new Game;
 
 const playerElement = document.getElementById("player")
-const player = new Player(325, 350);
+const player = new Player(350, 350);
 console.log(player);
 
 // This function is going to get the key pressed as an argument and move the player accordingly
@@ -82,6 +82,9 @@ function createNewReward() {
     const reward = document.createElement("div");
     seaBackground.appendChild(reward);
     reward.className = "reward";
+
+// Random to add different images
+
     reward.style.top = 0;
     reward.style.left = Math.random() * (seaBackground.offsetWidth - reward.offsetWidth) + "px"
 

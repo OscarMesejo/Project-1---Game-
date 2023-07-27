@@ -6,12 +6,10 @@ class Game {
         this.obstacles = [];
         this.rewards = [];
         this.score = 0;
-        this.timer = 20;
+        this.timer = 30;
         this.gameOver = false;
         this.gameStarted = false;
        
     }
-
-    
 }
 

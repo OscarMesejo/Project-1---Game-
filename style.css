@@ -83,6 +83,10 @@ body{
     border:2px solid black;
     border-radius: 5px;
 }
+.logostartgame-img{
+    width: 25vw;
+    height: 25vh;
+}
 
 #game-end{
     display: none;
