@@ -85,8 +85,9 @@ function createNewReward() {
     reward.style.top = 0;
     reward.style.left = Math.random() * (seaBackground.offsetWidth - reward.offsetWidth) + "px"
 
-    const imgArray = ['url("/images/plastic-bag.png")']
-    const randomNumber = Math.floor(Math.random() * ((imgArray.length - 1)))
+    const imgArray = ['url("/images/plasticbottle.png")','url("/images/plastic-bag.png")']
+    const randomNumber = Math.floor(Math.random()  * ((imgArray.length)))
+    console.log('RANDOM NUMBER ',randomNumber);
     reward.style.backgroundImage = imgArray[randomNumber]
     newGame.rewards.push(reward);
 }

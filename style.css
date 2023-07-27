@@ -33,8 +33,9 @@
     height: 10%;
 } */
 #seaBackground{
-    background-image: url("/images/waves.gif");
-    background-repeat: no-repeat;
+    /* background-image: url("/images/waves.gif");
+    background-repeat: no-repeat; */
+    background-color: aqua;
     background-size: cover;
     width: 70%;
     height: 100%;
@@ -64,13 +65,15 @@ body{
 #game-intro{
   
     position: absolute;
-    top: 200px;
+    top: 50px;
+    left: 270px;
     z-index: 10;
     background-color: silver;
     border: 5px solid purple;
     border-radius: 10px;
     width: 50vw;
     height: 50vh;
+    margin: 5%;
 }
 
 #start-button{
@@ -85,6 +88,7 @@ body{
     display: none;
     position: absolute;
     top: 50px;
+    left: 270px;
     z-index: 10;
     background-color: silver;
     border: 5px solid purple;
