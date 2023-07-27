@@ -26,7 +26,7 @@ const newGame = new Game;
 
 const playerElement = document.getElementById("player")
 const player = new Player(350, 350);
-console.log(player);
+// console.log(player);
 
 // This function is going to get the key pressed as an argument and move the player accordingly
 function playerMove(keyPressed) {
@@ -66,7 +66,7 @@ function createNewObstacle() {
     obstacle.style.top = 0;
     obstacle.style.left = Math.random() * (seaBackground.offsetWidth - obstacle.offsetWidth) + "px"
 
-    const imgArray = ['url("/images/yellowfish.png")']
+    const imgArray = ['url("images/yellowfish.png")']
     const randomNumber = Math.floor(Math.random() * ((imgArray.length - 1)))
 
     obstacle.style.backgroundImage = imgArray[randomNumber]
@@ -88,7 +88,7 @@ function createNewReward() {
     reward.style.top = 0;
     reward.style.left = Math.random() * (seaBackground.offsetWidth - reward.offsetWidth) + "px"
 
-    const imgArray = ['url("/images/plasticbottle.png")','url("/images/plastic-bag.png")']
+    const imgArray = ['url("images/plasticbottle.png")','url("/images/plastic-bag.png")']
     const randomNumber = Math.floor(Math.random()  * ((imgArray.length)))
     console.log('RANDOM NUMBER ',randomNumber);
     reward.style.backgroundImage = imgArray[randomNumber]
