@@ -7,6 +7,8 @@ document.addEventListener("keydown", (event) => {
 
 const startButtonElement = document.getElementById("start-button")
 
+//This is to start and reload the game
+
 startButtonElement.addEventListener('click',()=>{
     console.log("startbuttonpress");
     newGame.gameStarted = true
@@ -60,7 +62,7 @@ function createNewObstacle() {
     seaBackground.appendChild(obstacle);
     obstacle.className = "obstacle";
 
-    // Random para añadir distintas imágenes
+    // Random to add different images
     obstacle.style.top = 0;
     obstacle.style.left = Math.random() * (seaBackground.offsetWidth - obstacle.offsetWidth) + "px"
 
@@ -70,15 +72,10 @@ function createNewObstacle() {
     obstacle.style.backgroundImage = imgArray[randomNumber]
     newGame.obstacles.push(obstacle);
 
-    // 
-
-    // obstacleElement.style.left = `${obstacle}px`
-    // obstacleElement.style.top = `${obstacle}px`
-
 
 }
 
-// crear funcion createNewReward para rewards
+// Creat function createNewReward for rewards
 function createNewReward() {
     console.log("create new reward");
     const seaBackground = document.getElementById("seaBackground");
@@ -94,6 +91,7 @@ function createNewReward() {
     newGame.rewards.push(reward);
 }
 
+// setInterval to apply the function every second
 
 setInterval(() => {
     if (newGame.gameOver === false && newGame.gameStarted === true){
@@ -132,7 +130,7 @@ function removeObstacles() {
         const seaBackground = document.getElementById("seaBackground");
         if (obstaclePosition > seaBackground.offsetHeight - obstacle.offsetHeight) {
             obstacle.remove() // This makes desapeare the obstacles
-            // newGame.obstacles.pop()
+        
         }
     })
 }
@@ -155,7 +153,7 @@ function updateTimer(){
         newGame.gameOver = true;
         console.log("GAME OVER");
        document.getElementById("game-end").style.display = "block";
-    //    window.clearInterval(timer)
+    
     }
 }
 
