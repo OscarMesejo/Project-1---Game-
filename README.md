@@ -121,6 +121,8 @@ To make all this functions work, create a setInterval callback function and call
 
 ![setInterval](/images/setinterval.PNG)
 
+![GameOver](/images/gameoverB.png)
+
 
 
 
