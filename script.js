@@ -4,6 +4,21 @@ document.addEventListener("keydown", (event) => {
     console.log(event);
     playerMove(event.key)
 })
+
+const startButtonElement = document.getElementById("start-button")
+
+startButtonElement.addEventListener('click',()=>{
+    console.log("startbuttonpress");
+    newGame.gameStarted = true
+    document.getElementById("game-intro").style.display = 'none';
+})
+
+const restartButtonElement = document.getElementById("restart-button")
+
+restartButtonElement.addEventListener('click',()=>{
+    console.log("restartbuttonpress");
+    location.reload()
+})
 //This creates a new game
 const newGame = new Game;
 
@@ -81,15 +96,18 @@ function createNewReward() {
 
 
 setInterval(() => {
-    createNewObstacle()
-    createNewReward()
-    moveObstacles()
-    moveRewards()
-    removeObstacles()
-    removeRewards()
-    collissionDetectionForSquares()
-    document.getElementById("scoreCounter").innerHTML = newGame.score;
-    updateTimer()
+    if (newGame.gameOver === false && newGame.gameStarted === true){
+        createNewObstacle()
+        createNewReward()
+        moveObstacles()
+        moveRewards()
+        removeObstacles()
+        removeRewards()
+        collissionDetectionForSquares()
+        document.getElementById("scoreCounter").innerHTML = newGame.score;
+        updateTimer()
+    }
+    
 }, 1000);
 
 function moveObstacles() {
@@ -130,13 +148,11 @@ function removeRewards() {
 }
 
 function updateTimer(){
-    newGame.timer -=1;
     document.getElementById("timerCounter").innerHTML = newGame.timer;
-    if(newGame.timer === 3){
-        console.log("START GAME");
-        document.getElementById("game-intro").style.display = "block";
-    }
-    else if(newGame.timer === 0){
+    newGame.timer -=1;
+   
+     if(newGame.timer < 0){
+        newGame.gameOver = true;
         console.log("GAME OVER");
        document.getElementById("game-end").style.display = "block";
     //    window.clearInterval(timer)
