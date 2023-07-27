@@ -8,7 +8,7 @@ class Game {
         this.obstacles = [];
         this.rewards = [];
         this.score = 0;
-        this.timer = 45;
+        this.timer = 5;
         this.gameOver = false;
         this.gameStarted = false;
         // this.gameEndScreen = document.getElementById("game-end");

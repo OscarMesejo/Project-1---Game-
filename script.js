@@ -62,7 +62,7 @@ function createNewObstacle() {
 
     // Random para añadir distintas imágenes
     obstacle.style.top = 0;
-    obstacle.style.left = Math.random() * seaBackground.offsetWidth + "px"
+    obstacle.style.left = Math.random() * (seaBackground.offsetWidth - obstacle.offsetWidth) + "px"
 
     const imgArray = ['url("/images/yellowfish.png")']
     const randomNumber = Math.floor(Math.random() * ((imgArray.length - 1)))
@@ -86,7 +86,7 @@ function createNewReward() {
     seaBackground.appendChild(reward);
     reward.className = "reward";
     reward.style.top = 0;
-    reward.style.left = Math.random() * seaBackground.offsetWidth + "px"
+    reward.style.left = Math.random() * (seaBackground.offsetWidth - reward.offsetWidth) + "px"
 
     const imgArray = ['url("/images/plastic-bag.png")']
     const randomNumber = Math.floor(Math.random() * ((imgArray.length - 1)))
